@@ -1,6 +1,11 @@
 import pygame
 import random
 
+def newapple(lista):
+    lista.append(apple_surf.get_rect(
+        center=(random.randint(50, WIDTH - 50), 30)))
+    return lista
+
 WIDTH = 1280
 HEIGHT = 620
 BALLOON_SPEED = 4
@@ -44,8 +49,8 @@ while running:
             mouse_x, mouse_y = pygame.mouse.get_pos()
             penguin_rect = penguin_surf.get_rect(center=(mouse_x, HEIGHT - 50))
         if event.type == apple_timer:
-            apple_rect.append(apple_surf.get_rect(
-                center=(random.randint(50, WIDTH - 50), 30)))
+            apple_rect = newapple(apple_rect)
+
 
     screen.blit(bg_surf, bg_rect)
 
